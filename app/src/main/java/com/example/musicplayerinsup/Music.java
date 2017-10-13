@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class Music {
 
-    public static final ArrayList<Music> list = new ArrayList<>();
-
     String album;
     String artist;
     String title;

@@ -19,8 +19,6 @@ public class GetMusicInform {
     List<Music> list = new ArrayList<>();
     private static GetMusicInform getMusicInform;
 
-
-
     private GetMusicInform() {
     }
 
