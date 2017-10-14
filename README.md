@@ -15,3 +15,10 @@
 ##### 1. list에서 음악을 눌러 실행시킨 후 뒤로 간 후에 다른 것을 눌러 실행시키면 음악이 두개가 나옴
 ##### 2. 앱을 껐다 다시 키면 리스트가 중복되어 늘어나있음
 ##### 3. 싱글톤 만들어 사용하기
+##### 4. 앱을 껐다 다시 키면 음악이 완료되었을 때 다음 곡으로 잘 넘어가지 않음
+
+##### Activity에서 Context를 Pending Intent에 담아 서비스에 보내면
+http://techlog.gurucat.net/80
+
+##### PendingIntent에 대한 android 설명
+##### A description of an Intent and target action to perform with it. Instances of this class are created with getActivity(Context, int, Intent, int), getActivities(Context, int, Intent[], int), getBroadcast(Context, int, Intent, int), and getService(Context, int, Intent, int); the returned object can be handed to other applications so that they can perform the action you described on your behalf at a later time.

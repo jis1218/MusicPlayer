@@ -3,6 +3,8 @@ package com.example.musicplayerinsup;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 /**
  * Created by 정인섭 on 2017-10-13.
@@ -13,7 +15,10 @@ public class Player implements MediaPlayer.OnCompletionListener{
     private int status;
     private int current_position;
 
+    private CompletionListener completionListener;
+
     private Player(){
+
     }
 
     public static Player getInstance(){
@@ -31,11 +36,11 @@ public class Player implements MediaPlayer.OnCompletionListener{
             mediaPlayer.release();
             mediaPlayer = null;
         }
+
         mediaPlayer = MediaPlayer.create(context, uri);
         mediaPlayer.setLooping(false);
         mediaPlayer.setOnCompletionListener(this);
-        mediaPlayer.start();
-
+        Log.d("Player", "setPlayer");
     }
 
     public void startPlayer(){
@@ -58,12 +63,15 @@ public class Player implements MediaPlayer.OnCompletionListener{
 
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
-
-
+        Log.d("다 돔", "다 돔");
     }
 
     public int mGetCurrentPosition(){
         current_position = mediaPlayer.getCurrentPosition();
         return current_position;
+    }
+
+    interface CompletionListener{
+        void onCompletionListener();
     }
 }

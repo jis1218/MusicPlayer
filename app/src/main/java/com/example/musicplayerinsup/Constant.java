@@ -12,4 +12,7 @@ public class Constant {
     public static final int PAUSED = 101;
     public static final int STOP = 102;
 
+    public static final int ACTION_SET = 99;
+    public static int CurrentPosition = 0;
+
 }

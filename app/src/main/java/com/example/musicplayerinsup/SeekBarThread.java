@@ -1,5 +1,6 @@
 package com.example.musicplayerinsup;
 
+import android.os.Handler;
 import android.widget.SeekBar;
 
 /**
@@ -8,34 +9,24 @@ import android.widget.SeekBar;
 
 public class SeekBarThread extends Thread {
     boolean flag = true;
-    SeekBar seekBar;
     Player player;
+    Handler handler;
 
-    public SeekBarThread(SeekBar seekBar) {
-        this.seekBar = seekBar;
+    public SeekBarThread(Handler handler) {
         player = Player.getInstance();
+        this.handler = handler;
     }
 
     @Override
     public void run() {
         super.run();
-        while(flag){
-            seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                    seekBar.setProgress(player.mediaPlayer.getCurrentPosition());
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-
-                }
-
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-
-                }
-            });
+        while(true){
+            handler.sendEmptyMessage(Constant.ACTION_SET);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
         }
     }
