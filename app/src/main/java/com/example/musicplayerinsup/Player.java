@@ -15,8 +15,6 @@ public class Player implements MediaPlayer.OnCompletionListener{
     private int status;
     private int current_position;
 
-    private CompletionListener completionListener;
-
     private Player(){
 
     }
@@ -69,9 +67,5 @@ public class Player implements MediaPlayer.OnCompletionListener{
     public int mGetCurrentPosition(){
         current_position = mediaPlayer.getCurrentPosition();
         return current_position;
-    }
-
-    interface CompletionListener{
-        void onCompletionListener();
     }
 }

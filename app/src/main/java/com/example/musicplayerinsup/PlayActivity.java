@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PlayActivity extends AppCompatActivity implements Player.CompletionListener{
+public class PlayActivity extends AppCompatActivity{
     ViewPager viewPager = null;
     TextView tvTitle, tvArtist, tvCurrentTime, tvMaxTime;
     SeekBar seekBar;
@@ -261,10 +261,5 @@ public class PlayActivity extends AppCompatActivity implements Player.Completion
         SeekBarThread thread = new SeekBarThread(handler);
 
         thread.start();
-    }
-
-    @Override
-    public void onCompletionListener() {
-        //viewPager.
     }
 }
