@@ -51,10 +51,6 @@ public class Player implements MediaPlayer.OnCompletionListener{
         status = Constant.PAUSED;
     }
 
-    public void stopPlayer(){
-        mediaPlayer.stop();
-    }
-
     public int getStatus(){
         return status;
     }

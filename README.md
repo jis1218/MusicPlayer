@@ -22,3 +22,8 @@ http://techlog.gurucat.net/80
 
 ##### PendingIntent에 대한 android 설명
 ##### A description of an Intent and target action to perform with it. Instances of this class are created with getActivity(Context, int, Intent, int), getActivities(Context, int, Intent[], int), getBroadcast(Context, int, Intent, int), and getService(Context, int, Intent, int); the returned object can be handed to other applications so that they can perform the action you described on your behalf at a later time.
+
+##### Notification에서 노티 받는 방법
+##### 1. 불빛 이용 2. 진동 3. 사운드
+##### Noti에 대해 잘 나와있는 싸이트 http://developer88.tistory.com/60
+##### 안드로이드 개발자 사이트에 Noti에 대한 내용이 잘 나와있음 https://developer.android.com/guide/topics/ui/notifiers/notifications.html#NotificationResponse

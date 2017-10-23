@@ -120,7 +120,9 @@ public class PlayActivity extends AppCompatActivity{
     }
 
     private void launchService() {
+        service_intent.putExtra("position", current_position);
         startService(service_intent);
+
     }
 
     private void setListener() {
@@ -135,7 +137,7 @@ public class PlayActivity extends AppCompatActivity{
                         break;
 
                     case Constant.PAUSED:
-                        player.startPlayer();
+                        startService(service_intent);
                         ((ImageView) view).setImageResource(android.R.drawable.ic_media_pause);
                         break;
                 }
@@ -219,6 +221,7 @@ public class PlayActivity extends AppCompatActivity{
                 current_position = position;
                 btnPlay.setImageResource(android.R.drawable.ic_media_pause);
                 seekBar.setProgress(0);
+                tvCurrentTime.setText("00:00");
                 getMusicUri();
                 setPlayer();
                 Log.d("PlayerActivity", "Posts-etPlayer()");
@@ -254,6 +257,8 @@ public class PlayActivity extends AppCompatActivity{
                 switch (msg.what) {
                     case Constant.ACTION_SET:
                         seekBar.setProgress(player.mediaPlayer.getCurrentPosition());
+
+                        tvCurrentTime.setText(miliToSec(player.mediaPlayer.getCurrentPosition()));
                         break;
                 }
             }

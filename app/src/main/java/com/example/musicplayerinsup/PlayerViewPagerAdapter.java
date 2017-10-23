@@ -2,6 +2,7 @@ package com.example.musicplayerinsup;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,14 +18,17 @@ import java.util.ArrayList;
  * Created by 정인섭 on 2017-10-12.
  */
 
-public class PlayerViewPagerAdapter extends PagerAdapter {
+public class PlayerViewPagerAdapter extends PagerAdapter{
 
     ArrayList<Music> list;
     Context context;
+    int current_position;
+    IObserver iObserver;
 
     PlayerViewPagerAdapter(Context context, ArrayList<Music> list){
         this.list = list;
         this.context = context;
+
     }
 
     @Override
@@ -48,6 +52,7 @@ public class PlayerViewPagerAdapter extends PagerAdapter {
         holder.tvTitle.setText(list.get(position).title);
         Log.d("instantiateItem", list.get(position).title);
         holder.imageView.setImageURI(list.get(position).album_uri);
+        current_position = position;
 
         container.addView(view);
 
